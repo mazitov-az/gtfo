@@ -20,4 +20,6 @@ use Illuminate\Support\Carbon;
 class Booster extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['data'];
 }

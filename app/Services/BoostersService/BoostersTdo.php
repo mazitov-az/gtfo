@@ -11,9 +11,14 @@ final class BoostersTdo
         public string $Description,
         public string $MainEffectType,
         public string $ImplantCategory,
-        public array  $Effects,
-        public array  $Conditions,
+        public array  $Effects = [],
+        public array  $Conditions = [],
     )
     {
+    }
+
+    public function export(): string
+    {
+        return json_encode($this);
     }
 }
