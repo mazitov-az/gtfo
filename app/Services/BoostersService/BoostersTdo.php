@@ -19,13 +19,19 @@ final class BoostersTdo implements Arrayable
     {
     }
 
+    /**
+     * @return array<array-key, mixed>
+     */
     public function toArray(): array
     {
         return (array)$this;
     }
 
+    /**
+     * @return string
+     */
     public function export(): string
     {
-        return json_encode($this);
+        return (string)json_encode($this);
     }
 }
