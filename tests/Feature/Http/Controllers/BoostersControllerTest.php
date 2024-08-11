@@ -13,5 +13,6 @@ final class BoostersControllerTest extends TestCase
         $response = $this->get('/api/boosters');
 
         $response->assertStatus(200);
+        $response->assertJsonIsObject();
     }
 }

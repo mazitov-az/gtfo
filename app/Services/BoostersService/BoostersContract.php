@@ -23,9 +23,7 @@ interface BoostersContract
     public function getForUser($uuid): iterable;
 
     /**
-     * JSON
-     *
-     * @return string
+     * @return CustomBoosters
      */
-    public function export(): string;
+    public function export(): CustomBoosters;
 }

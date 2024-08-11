@@ -54,10 +54,10 @@ final class BoostersServiceTest extends TestCase
     public function test_export(): void
     {
         $result1 = $this->service->export();
-        $this->assertNotEmpty($result1);
+        $this->assertEmpty($result1->CustomBoosters);
+
         Booster::factory()->create();
         $result2 = $this->service->export();
-        $this->assertNotEmpty($result2);
-        $this->assertNotEquals($result1, $result2);
+        $this->assertNotEmpty($result2->CustomBoosters);
     }
 }

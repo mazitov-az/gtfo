@@ -42,17 +42,9 @@ final class BoostersService implements BoostersContract
         return [];
     }
 
-    public function export(): string
+    public function export(): CustomBoosters
     {
-        $result = [
-            'UseCustomData' => false,
-            'CustomBoosters' => []
-        ];
-
         $boosters = $this->getAll();
-        foreach ($boosters as $booster) {
-            $result['CustomBoosters'] = $booster->toArray();
-        }
-        return (string)json_encode($result);
+        return new CustomBoosters($boosters);
     }
 }
