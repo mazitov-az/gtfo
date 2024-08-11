@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->id();
             // TODO add foreign
             $table->integer('user_id')->index()->nullable();
-            $table->text('data');
+            $table->json('data');
             $table->timestamps();
         });
     }
