@@ -8,7 +8,6 @@ use App\Models\Booster;
 use App\Services\BoostersService\BoostersContract;
 use App\Services\BoostersService\BoostersService;
 use App\Services\BoostersService\BoostersTdo;
-use Database\Factories\BoosterFactory;
 use Tests\TestCase;
 
 final class BoostersServiceTest extends TestCase
@@ -50,5 +49,15 @@ final class BoostersServiceTest extends TestCase
         $item = reset($all);
         $this->assertEquals($data, $item->toArray());
         Booster::query()->delete();
+    }
+
+    public function test_export(): void
+    {
+        $result1 = $this->service->export();
+        $this->assertNotEmpty($result1);
+        Booster::factory()->create();
+        $result2 = $this->service->export();
+        $this->assertNotEmpty($result2);
+        $this->assertNotEquals($result1, $result2);
     }
 }

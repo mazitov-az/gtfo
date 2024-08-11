@@ -44,7 +44,15 @@ final class BoostersService implements BoostersContract
 
     public function export(): string
     {
-        // TODO: Implement export() method.
-        return '';
+        $result = [
+            'UseCustomData' => false,
+            'CustomBoosters' => []
+        ];
+
+        $boosters = $this->getAll();
+        foreach ($boosters as $booster) {
+            $result['CustomBoosters'] = $booster->toArray();
+        }
+        return json_encode($result);
     }
 }
