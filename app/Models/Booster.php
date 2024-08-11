@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use App\Services\BoostersService\BoostersTdo;
+use Database\Factories\BoosterFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -20,6 +21,7 @@ use Illuminate\Support\Carbon;
  */
 class Booster extends Model
 {
+    /** @use HasFactory<BoosterFactory> */
     use HasFactory;
 
     protected $fillable = ['data'];

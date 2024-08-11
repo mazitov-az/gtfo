@@ -22,7 +22,7 @@ final class BoostersService implements BoostersContract
      */
     public function getAll(): iterable
     {
-        /** @var \Illuminate\Database\Eloquent\Collection<Booster> $items */
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Booster> $items */
         $items = Booster::query()->get();
         if ($items->count() === 0) {
             return [];
@@ -53,6 +53,6 @@ final class BoostersService implements BoostersContract
         foreach ($boosters as $booster) {
             $result['CustomBoosters'] = $booster->toArray();
         }
-        return json_encode($result);
+        return (string)json_encode($result);
     }
 }

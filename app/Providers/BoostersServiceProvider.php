@@ -10,6 +10,9 @@ use Illuminate\Support\ServiceProvider;
 
 class BoostersServiceProvider extends ServiceProvider
 {
+    /**
+     * @var array<array-key, class-string>
+     */
     public $singletons = [
         BoostersContract::class => BoostersService::class
     ];
