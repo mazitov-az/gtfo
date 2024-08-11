@@ -17,10 +17,23 @@ final class BoostersService implements BoostersContract
         return $this;
     }
 
+    /**
+     * @return List<BoostersTdo>
+     */
     public function getAll(): iterable
     {
-        // TODO: Implement getAll() method.
-        return [];
+        /** @var \Illuminate\Database\Eloquent\Collection<Booster> $items */
+        $items = Booster::query()->get();
+        if ($items->count() === 0) {
+            return [];
+        }
+
+        $result = [];
+        foreach ($items as $item) {
+            $result[] = $item->getDto();
+        }
+
+        return $result;
     }
 
     public function getForUser($uuid): iterable

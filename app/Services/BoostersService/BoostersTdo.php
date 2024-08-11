@@ -17,6 +17,11 @@ final class BoostersTdo
     {
     }
 
+    public function toArray(): array
+    {
+        return (array)$this;
+    }
+
     public function export(): string
     {
         return json_encode($this);
