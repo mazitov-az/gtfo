@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace App\Services\BoostersService;
 
-final class BoostersTdo
+use Illuminate\Contracts\Support\Arrayable;
+
+final class BoostersTdo implements Arrayable
 {
     public function __construct(
         public string $PublicName,
